@@ -16,9 +16,8 @@
     }
   }, 
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "prepare": "npm run build",
+    "build": "vue-tsc && vite build"
   },
   "dependencies": {
     "@tiptap/extension-bubble-menu": "^2.0.3",

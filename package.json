@@ -22,6 +22,7 @@
     "@tiptap/pm": "^2.3.0",
     "@tiptap/starter-kit": "^2.3.0",
     "@tiptap/vue-3": "^2.3.0",
+    "@types/node": "^20.12.7",
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
     "oh-vue-icons": "^1.0.0-rc3",
@@ -33,6 +34,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.8.3",
     "vue-tsc": "^2.0.6"
   }
 }

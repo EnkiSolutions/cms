@@ -5,13 +5,13 @@ import { Base, default as templates } from '../templates'
 import { Sitemap } from '../types';
 const edit = ref(false);
 const { fullPath } = useRoute();
-const sitemap = inject<Sitemap>("sitemap")!;
+const { pages, sitemap} = inject<{ pages: string, sitemap: Sitemap }>("sitemap")!;
 const splittedPath = fullPath.split("/");
 splittedPath.shift();
 const page = splittedPath.pop()!;
 const root = splittedPath.pop()??"$r";
 const title = sitemap[root].find(v => v.path == page)?.title;
-const { template, content } = await import(`${import.meta.env.__PAGES__}/${root}/${page}`);
+const { template, content } = await import(`${pages}/${root}/${page}`);
 localStorage.setItem('origin', fullPath);
 const login = localStorage.getItem('login')
 const onModified = async (c: string) => await fetch(

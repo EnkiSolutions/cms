@@ -16,6 +16,7 @@ import {
     RiAddLine,
     RiDragMove2Fill
 } from "oh-vue-icons/icons";
+import EnkiView from "./components/EnkiView.vue";
 export { createRouter };
 export default {
     install:(app, sitemap) => {
@@ -35,6 +36,7 @@ export default {
         );
         app
             .component("Editor", Editor)
+            .component("EnkiView", EnkiView)
             .component("v-icon", OhVueIcon)
             .provide("sitemap", sitemap)
     }

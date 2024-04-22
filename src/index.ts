@@ -18,7 +18,7 @@ import {
 } from "oh-vue-icons/icons";
 export { createRouter };
 export default {
-    install:(app, options) => {
+    install:(app, sitemap) => {
         addIcons(
             RiArrowGoBackLine,
             RiArrowGoForwardLine,
@@ -36,6 +36,6 @@ export default {
         app
             .component("Editor", Editor)
             .component("v-icon", OhVueIcon)
-            .provide("sitemap", options)
+            .provide("sitemap", sitemap)
     }
 } as VuePlugin

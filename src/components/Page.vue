@@ -5,7 +5,7 @@ import { Base, default as templates } from '../templates'
 import { Sitemap } from '../types';
 const edit = ref(false);
 const { fullPath } = useRoute();
-const { pages, sitemap} = inject<{ pages: string, sitemap: Sitemap }>("sitemap")!;
+const { pages, sitemap } = inject<{ pages: string, sitemap: Sitemap }>("sitemap")!;
 const splittedPath = fullPath.split("/");
 splittedPath.shift();
 const page = splittedPath.pop()!;

@@ -19,5 +19,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [dts(), vue()],
+  plugins: [dts({ rollupTypes: true }), vue()],
 });

@@ -18,12 +18,14 @@ import {
 } from "oh-vue-icons/icons";
 import { Sitemap } from "./types";
 import { addTemplates } from "./templates";
+import Menu from "./components/Menu.vue";
 
 export { default as createRouter } from "./router";
 export type * from './types';
 export {
     Editor,
-    EnkiView
+    EnkiView,
+    Menu
 }
 export default {
     install:(app, options: { sitemap: Sitemap, templates: Record<string, Component> }) => {
@@ -46,12 +48,14 @@ export default {
             .component("Editor", Editor)
             .component("EnkiView", EnkiView)
             .component("v-icon", OhVueIcon)
+            .component("Menu", Menu)
             .provide("sitemap", options.sitemap)
     }
 } as VuePlugin
 declare module "vue" {
     export interface GlobalComponents {
         Editor: typeof Editor,
-        EnkiView: typeof EnkiView
+        EnkiView: typeof EnkiView,
+        Menu: typeof Menu
     }
 }

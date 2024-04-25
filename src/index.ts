@@ -20,6 +20,11 @@ import {
 
 export { default as createRouter } from "./router";
 export type * from './types';
+export {
+    Editor,
+    EnkiView,
+    ListBase
+}
 export default {
     install:(app, sitemap) => {
         addIcons(

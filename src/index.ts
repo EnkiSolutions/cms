@@ -1,8 +1,7 @@
 import { OhVueIcon, addIcons } from "oh-vue-icons"
-import { Plugin as VuePlugin } from "vue";
+import { Component, Plugin as VuePlugin } from "vue";
 import Editor from './components/Editor.vue';
 import EnkiView from './components/EnkiView.vue';
-import ListBase from './components/ListBase.vue';
 import {
     RiArrowGoBackLine,
     RiArrowGoForwardLine,
@@ -17,16 +16,17 @@ import {
     RiAddLine,
     RiDragMove2Fill
 } from "oh-vue-icons/icons";
+import { Sitemap } from "./types";
+import { addTemplates } from "./templates";
 
 export { default as createRouter } from "./router";
 export type * from './types';
 export {
     Editor,
-    EnkiView,
-    ListBase
+    EnkiView
 }
 export default {
-    install:(app, sitemap) => {
+    install:(app, options: { sitemap: Sitemap, templates: Record<string, Component> }) => {
         addIcons(
             RiArrowGoBackLine,
             RiArrowGoForwardLine,
@@ -41,17 +41,17 @@ export default {
             RiAddLine,
             RiDragMove2Fill
         );
+        addTemplates(options.templates);
         app
             .component("Editor", Editor)
             .component("EnkiView", EnkiView)
             .component("v-icon", OhVueIcon)
-            .provide("sitemap", sitemap)
+            .provide("sitemap", options.sitemap)
     }
 } as VuePlugin
 declare module "vue" {
     export interface GlobalComponents {
         Editor: typeof Editor,
-        EnkiView: typeof EnkiView,
-        ListBase: typeof ListBase
+        EnkiView: typeof EnkiView
     }
 }

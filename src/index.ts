@@ -44,7 +44,7 @@ export default {
     }
 } as VuePlugin
 declare module "vue" {
-    interface GlobalComponents {
+    export interface GlobalComponents {
         Editor: typeof Editor,
         EnkiView: typeof EnkiView,
         ListBase: typeof ListBase

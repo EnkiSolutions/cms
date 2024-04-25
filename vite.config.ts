@@ -8,6 +8,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: "cms",
+      fileName: "cms"
     },
     rollupOptions: {
       external: ['vue'],

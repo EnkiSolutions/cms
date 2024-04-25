@@ -17,8 +17,7 @@
   }, 
   "scripts": {
     "prepare": "npm run build",
-    "generate:types": "vue-tsc --declaration --emitDeclarationOnly --outdir ./dist",
-    "build": "vite build && npm run generate:types"
+    "build": "vue-tsc && vite build"
   },
   "dependencies": {
     "@tiptap/extension-bubble-menu": "^2.0.3",

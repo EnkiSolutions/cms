@@ -16,6 +16,7 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         },
+        inlineDynamicImports: false,
         dir: resolve(__dirname, 'dist') // Définir un répertoire de sortie commun
       },
       external: ['vue', 'fs', 'path']

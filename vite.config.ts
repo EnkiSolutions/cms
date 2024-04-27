@@ -18,7 +18,7 @@ export default defineConfig({
         },
         dir: resolve(__dirname, 'dist') // Définir un répertoire de sortie commun
       },
-      external: ['vue']
+      external: ['vue', 'fs']
     }
   },
   plugins: [dts({ rollupTypes: true }), vue()]

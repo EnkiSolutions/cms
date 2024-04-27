@@ -12,7 +12,7 @@ export default defineConfig({
       },
       output: {
         entryFileNames: `[name].js`, // Pour nommer chaque sortie après son point d'entrée
-        format: 'umd', // Choisissez le format qui convient à votre usage (umd, esm, cjs, etc.)
+        format: 'cjs', // Choisissez le format qui convient à votre usage (umd, esm, cjs, etc.)
         globals: {
           vue: 'Vue'
         },

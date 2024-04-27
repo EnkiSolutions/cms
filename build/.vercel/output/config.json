@@ -1,0 +1,15 @@
+{
+    "version": 3,
+    "routes": [
+        {
+            "handle": "rewrite",
+            "src": "/contents/:match*",
+            "dest": "/contents/:match*"
+        },
+        {
+            "handle": "rewrite",
+            "src": "/:path*",
+            "dest": "/index.html"
+        }
+    ]
+}

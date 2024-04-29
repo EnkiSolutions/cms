@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, } from 'fs';
+import { mkdirSync, readdirSync, readFileSync, writeFileSync, } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 function copySubfolder(src: string, dest: string) {

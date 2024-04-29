@@ -8,6 +8,11 @@
         },
         {
             "handle": "rewrite",
+            "src": "/pages/:match*",
+            "dest": "/pages/:match*"
+        },
+        {
+            "handle": "rewrite",
             "src": "/:path*",
             "dest": "/index.html"
         }

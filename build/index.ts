@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, } from
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 function copySubfolder(src: string, dest: string) {
-    if (!existsSync(dest)) mkdirSync(dest);
+    mkdirSync(dest);
     const entries = readdirSync(src, { withFileTypes: true });
     for (const entry of entries) {
         const source = join(src, entry.name);

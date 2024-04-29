@@ -1,5 +1,6 @@
 import { readdirSync, readFileSync, writeFileSync, } from 'fs';
-import { join } from 'path';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 function copySubfolder(src: string, dest: string) {
     const entries = readdirSync(src, { withFileTypes: true });
     for (const entry of entries) {
@@ -13,4 +14,5 @@ function copySubfolder(src: string, dest: string) {
         }
     }
 }
-copySubfolder(join(__dirname, 'vercel'), '.vercel');
+const _dirname = dirname(fileURLToPath(import.meta.url));
+copySubfolder(join(_dirname, 'vercel'), '.vercel');

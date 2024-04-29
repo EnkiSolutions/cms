@@ -16,5 +16,5 @@ function copySubfolder(src: string, dest: string) {
     }
 }
 const _dirname = dirname(fileURLToPath(import.meta.url));
-copySubfolder(join(_dirname, 'api'), 'api');
-copySubfolder(join(_dirname, 'backend'), 'backend');
+copySubfolder(join(_dirname, 'api'), 'vercel/path0/api');
+copySubfolder(join(_dirname, 'backend'), 'vercel/path0/backend');

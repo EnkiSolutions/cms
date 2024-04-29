@@ -12,7 +12,7 @@ const page = splittedPath.pop()!;
 const root = splittedPath.pop()??"$r";
 const title = sitemap[root].find(v => v.path == page)?.title;
 const data = await fetch(
-	window.location.origin + `/pages/${root}/${page}`,
+	window.location.origin + `/pages/${root}/${page}.json`,
 	{
 		method: "GET",
 		headers: {

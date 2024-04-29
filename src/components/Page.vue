@@ -11,7 +11,7 @@ splittedPath.shift();
 const page = splittedPath.pop()!;
 const root = splittedPath.pop()??"$r";
 const title = sitemap[root].find(v => v.path == page)?.title;
-const { template, content } = await import(`../../../src/pages/${root}/${page}`);
+const { template, content } = await import(`pages/${root}/${page}`);
 localStorage.setItem('origin', fullPath);
 const login = localStorage.getItem('login')
 const onModified = async (c: string) => await fetch(

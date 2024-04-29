@@ -16,8 +16,9 @@
     }
   },
   "scripts": {
-    "prepare": "npm run build",
-    "build": "vue-tsc && vite build"
+    "prepare": "npm run build:src && npm run build:build",
+    "build:src": "vue-tsc && vite build",
+    "build:build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
     "@tiptap/extension-bubble-menu": "^2.0.3",

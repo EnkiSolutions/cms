@@ -5,21 +5,19 @@ import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: "cms",
+      fileName: "cms"
+    },
     rollupOptions: {
-      input: {
-        cms: resolve(__dirname, 'src/index.ts'),
-        build: resolve(__dirname, 'build/index.ts')
-      },
+      external: ['vue'],
       output: {
-        entryFileNames: `[name].js`, // Pour nommer chaque sortie après son point d'entrée
-        format: 'cjs', // Choisissez le format qui convient à votre usage (umd, esm, cjs, etc.)
         globals: {
           vue: 'Vue'
         },
-        inlineDynamicImports: false,
-        dir: resolve(__dirname, 'dist') // Définir un répertoire de sortie commun
+      //  inlineDynamicImports: false,
       },
-      external: ['vue', 'fs', 'path']
     }
   },
   plugins: [dts({ rollupTypes: true }), vue()]

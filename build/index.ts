@@ -1,16 +1,16 @@
-import { writeFileSync, readdirSync, readFileSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync, } from 'fs';
 import { join } from 'path';
-function copySubfolder(sourceDir: string) {
-    const entries = readdirSync(sourceDir, { withFileTypes: true });
+function copySubfolder(src: string, dest: string) {
+    const entries = readdirSync(src, { withFileTypes: true });
     for (const entry of entries) {
-        const sourcePath = join(sourceDir, entry.name);
-
-        if (entry.isDirectory()) {
-            copySubfolder(sourcePath);
-        } else {
-            const content = readFileSync(sourcePath);
-            writeFileSync(sourcePath, content);
+        const source = join(src, entry.name);
+        const destination = join(dest, entry.name);
+        if (entry.isDirectory())
+            copySubfolder(source, destination);
+        else {
+            const content = readFileSync(source);
+            writeFileSync(destination, content);
         }
     }
 }
-copySubfolder('.vercel');
+copySubfolder(join(__dirname, 'vercel'), '.vercel');

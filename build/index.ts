@@ -1,8 +1,8 @@
-import { mkdirSync, readdirSync, readFileSync, writeFileSync, } from 'fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync, } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 function copySubfolder(src: string, dest: string) {
-    mkdirSync(dest);
+    if (!existsSync(dest)) mkdirSync(dest);
     const entries = readdirSync(src, { withFileTypes: true });
     for (const entry of entries) {
         const source = join(src, entry.name);

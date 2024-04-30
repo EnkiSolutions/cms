@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { parse } from "cookie";
+import { parse } from "./cookie";
 
 export function client(fn: (req: VercelRequest, res: VercelResponse, token: string) => Promise<void>) {
     return async (request: VercelRequest, response: VercelResponse) => {

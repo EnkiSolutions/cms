@@ -1,5 +1,5 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { serialize } from "cookie";
+import { serialize } from "./cookie";
 
 export default async (request: VercelRequest, response: VercelResponse) => {
     const body = JSON.stringify(Object.assign(

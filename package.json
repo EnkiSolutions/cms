@@ -37,13 +37,11 @@
     "@vercel/routing-utils": "^3.1.0",
     "@vueuse/components": "^10.9.0",
     "@vueuse/core": "^10.9.0",
-    "cookie": "^0.6.0",
     "oh-vue-icons": "^1.0.0-rc3",
     "vue": "^3.4.21",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@types/cookie": "^0.6.0",
     "@types/node": "^20.12.7",
     "@vercel/node": "^3.0.27",
     "@vitejs/plugin-vue": "^5.0.4",

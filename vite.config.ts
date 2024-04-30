@@ -18,10 +18,5 @@ export default defineConfig({
       },
     }
   },
-  resolve: {
-     alias: {
-       '@': resolve(__dirname, 'src/pages'),
-     },
-  },
   plugins: [dts({ rollupTypes: true }), vue()]
 });

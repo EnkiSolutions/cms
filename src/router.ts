@@ -25,16 +25,13 @@ let routes: RouteRecordRaw[] = [
 ];
 export default (sitemap: Sitemap) => {
     let section: keyof typeof sitemap;
-    for (section in sitemap) {
-        const path = section == "$r" 
-            ? '/:page'
-            : '/' + section + '/:page';
-        routes.push({
-            path,
-            component: Page,
-            props: true
-        });
-    }
+    for (section in sitemap)
+        for (let page of sitemap[section])
+            routes.push({
+                path: '/' + (section == "$r" ? '' : section) + page.path,
+                component: Page,
+                props: true
+            });
     return createRouter({
         history: createWebHistory(),
         routes,

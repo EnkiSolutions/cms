@@ -11,16 +11,7 @@ splittedPath.shift();
 const page = splittedPath.pop()!;
 const root = splittedPath.pop()??"$r";
 const title = sitemap[root].find(v => v.path == page)?.title;
-const data = await fetch(
-	window.location.origin + `/pages/${root}/${page}.json`,
-	{
-		method: "GET",
-		headers: {
-			"Content-Type": "application/json"
-		}
-	}
-);
-const { template, content } = await data.json();
+const { template, content } = await import(`@/${root}/${page}.json`);
 localStorage.setItem('origin', fullPath);
 const login = localStorage.getItem('login')
 const onModified = async (c: string) => await fetch(

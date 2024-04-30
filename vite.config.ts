@@ -2,7 +2,6 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-
 export default defineConfig({
   build: {
     lib: {
@@ -18,6 +17,11 @@ export default defineConfig({
         },
       },
     }
+  },
+  resolve: {
+     alias: {
+       '@': resolve(__dirname, 'src/pages'),
+     },
   },
   plugins: [dts({ rollupTypes: true }), vue()]
 });

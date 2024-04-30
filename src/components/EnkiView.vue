@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { PropType } from "vue";
-import { RouterView } from "vue-router"
 defineProps({
     mode: {
         type: String as PropType<"default" | "out-in" | "in-out">,
@@ -10,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-    <RouterView v-slot="{ Component, route }">
+    <router-view v-slot="{ Component, route }">
         <template v-if="Component">
             <Transition :mode="mode">
                 <KeepAlive>
@@ -23,5 +22,5 @@ defineProps({
                 </KeepAlive>
             </Transition>
         </template>
-    </RouterView>
+    </router-view>
 </template>

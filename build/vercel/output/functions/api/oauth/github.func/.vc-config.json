@@ -1,5 +1,5 @@
 {
   "runtime": "nodejs18.x",
   "handler": "index.js",
-  "environment": []
+  "launcherType": "Nodejs"
 }

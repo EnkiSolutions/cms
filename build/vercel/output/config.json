@@ -5,11 +5,11 @@
             "handle": "rewrite"
         },
         {
-            "src": "/contents/:match*",
-            "dest": "/contents/:match*"
+            "src": "/contents/*",
+            "dest": "/contents/$1"
         },
         {
-            "src": "/:path*",
+            "src": "/*",
             "dest": "/index.html"
         }
     ]

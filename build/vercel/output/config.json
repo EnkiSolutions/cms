@@ -2,13 +2,6 @@
     "version": 3,
     "routes": [
         {
-            "handle": "rewrite"
-        },
-        {
-            "src": "/contents/.*",
-            "dest": "/contents/$1"
-        },
-        {
             "src": "/.*",
             "dest": "/index.html",
             "continue": false

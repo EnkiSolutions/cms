@@ -1,6 +1,8 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
-import { serialize } from "./cookie";
-
+const serialize = (name: string, val: string, maxAge: number) =>
+    name + '=' + encodeURIComponent(val)
+    + '; Max-Age=' + Math.floor(maxAge)
+    + '; Path=/; HttpOnly; Secure; SameSite=None';
 export default async (request: VercelRequest, response: VercelResponse) => {
     const body = JSON.stringify(Object.assign(
         {
@@ -9,14 +11,14 @@ export default async (request: VercelRequest, response: VercelResponse) => {
         },
         (request.body as string).startsWith("ghr")
             ?
-                {
-                    grant_type: "refresh_token",
-                    refresh_token: request.body
-                }
+            {
+                grant_type: "refresh_token",
+                refresh_token: request.body
+            }
             :
-                {
-                    code: request.body
-                }
+            {
+                code: request.body
+            }
     ));
     const req = await fetch('https://github.com/login/oauth/access_token', {
         method: 'POST',
@@ -33,24 +35,12 @@ export default async (request: VercelRequest, response: VercelResponse) => {
             serialize(
                 'github_token',
                 access_token,
-                {
-                    path: '/',
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'none', // from lax
-                    maxAge: 28800
-                },            
+                28800
             ),
             serialize(
                 'github_refresh_token',
                 refresh_token,
-                {
-                    path: '/',
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'none', // from lax
-                    maxAge: 15811200
-                },            
+                15811200
             ),
         ])
         .send({

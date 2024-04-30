@@ -9,7 +9,7 @@ function tryDecode(str: string) {
     }
 }
 function parse(str: string): { [k: string]: any } {
-    var obj = {};
+    var obj: Record<string, string> = {};
     var index = 0;
     while (index < str.length) {
         var eqIdx = str.indexOf('=', index);
